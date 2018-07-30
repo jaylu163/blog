@@ -57,10 +57,17 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
 
+        // web 登录路由中间件
+        'check-login' => \App\Http\Middleware\CheckAdminLogin::class,//登录中间件
         //用户完成登录注册之后就可以设置需要登录后才能访问的路由,首先到
         //'jwt.auth' => \App\Http\Middleware\GetUserFromToken,
         //'jwt.refresh' => \App\Http\Middleware\RefreshToken,
         'cors' => \App\Http\Middleware\CORS::class,
         'jwt-auth' => \App\Http\Middleware\authJWT::class,
+        // 权限管理
+        'role' => \Zizaco\Entrust\Middleware\EntrustRole::class,
+        'permission' => \Zizaco\Entrust\Middleware\EntrustPermission::class,
+        'ability' => \Zizaco\Entrust\Middleware\EntrustAbility::class,
+    
     ];
 }

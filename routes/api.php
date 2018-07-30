@@ -17,12 +17,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::group([],function(){
+	Route::get('/login','LoginController@index');
+
+});
 
 Route::group(['middleware' => ['api','cors'] ], function () {
     Route::post('register', 'LoginController@register');
     Route::post('login', 'LoginController@login');
     Route::group(['middleware' => 'jwt-auth'], function () {
-    	Route::post('get_user_details', 'UsersController@getUserDetails');
+    	Route::post('user/get_user_details', 'UsersController@getUserDetails');
     });
 });
 

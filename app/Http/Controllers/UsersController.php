@@ -18,4 +18,8 @@ class UsersController extends BaseController{
         return $this->formatJson('', $user, $msg='');
     }
 
+    public function add(Request $request){
+    	return view('users.add',[]);
+    }
+    
 }

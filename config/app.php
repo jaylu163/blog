@@ -179,6 +179,11 @@ return [
 
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
 
+        //google验证码
+        Earnp\GoogleAuthenticator\GoogleAuthenticatorServiceprovider::class,
+        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+        //权限管理
+        Zizaco\Entrust\EntrustServiceProvider::class,
     ],
 
     /*
@@ -231,6 +236,13 @@ return [
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
 
+        // 验证码
+        'Google' => Earnp\GoogleAuthenticator\Facades\GoogleAuthenticator::class,
+        'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+
+        // 权限管理
+        'Entrust' => Zizaco\Entrust\EntrustFacade::class,
+        
     ],
 
 ];
