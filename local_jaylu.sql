@@ -11,7 +11,7 @@
  Target Server Version : 100134
  File Encoding         : 65001
 
- Date: 30/07/2018 11:38:45
+ Date: 31/07/2018 19:13:02
 */
 
 SET NAMES utf8mb4;
@@ -108,20 +108,22 @@ CREATE TABLE `roles`  (
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users`  (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `mobile` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp(0) NULL DEFAULT NULL,
-  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '用户名',
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '邮箱',
+  `telephone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '手机号',
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '密码',
+  `created_at` timestamp(0) NULL DEFAULT NULL COMMENT '创建时间',
+  `updated_at` timestamp(0) NULL DEFAULT NULL COMMENT '更新时间',
+  `deleted_at` timestamp(0) NULL DEFAULT NULL COMMENT '删除时间',
+  `status` tinyint(1) NULL DEFAULT 1 COMMENT '1启用 2禁用',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 27 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (1, 'tom', NULL, '', 'e10adc3949ba59abbe56e057f20f883e', '2018-07-23 06:00:14', '2018-07-23 06:00:14');
-INSERT INTO `users` VALUES (2, 'pony', '320211697@qq.com', '', '$2y$10$sabjoYQB0eMJM.knaGbOie3F6svASFDxET6LCfgZlLIFpwn5NRrH6', '2018-07-23 07:03:52', '2018-07-23 07:03:52');
+INSERT INTO `users` VALUES (1, 'tom', '1239664850@qq.com', '', 'e10adc3949ba59abbe56e057f20f883e', '2018-07-23 06:00:14', '2018-07-23 06:00:14', NULL, 1);
+INSERT INTO `users` VALUES (2, 'pony', '320211697@qq.com', '', '$2y$10$sabjoYQB0eMJM.knaGbOie3F6svASFDxET6LCfgZlLIFpwn5NRrH6', '2018-07-23 07:03:52', '2018-07-23 07:03:52', NULL, 1);
 
 -- ----------------------------
 -- Table structure for users_seed

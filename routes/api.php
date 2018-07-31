@@ -27,6 +27,7 @@ Route::group(['middleware' => ['api','cors'] ], function () {
     Route::post('login', 'LoginController@login');
     Route::group(['middleware' => 'jwt-auth'], function () {
     	Route::post('user/get_user_details', 'UsersController@getUserDetails');
+    	Route::post('user/ajax_get_data', 'UsersController@ajaxGetData');
     });
 });
 

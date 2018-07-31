@@ -21,5 +21,25 @@ class UsersController extends BaseController{
     public function add(Request $request){
     	return view('users.add',[]);
     }
-    
+
+ 	public function index(){
+
+ 		return view('users.index',['user'=>'']);
+
+ 	} 
+
+ 	public function ajaxGetData(Request $request){
+
+		$pageInfo = $this->getPageInfo($request);
+ 		$user = User::where('status',1)->skip($pageInfo['start'])->take($pageInfo['length'])->get()->all();
+ 		$userCount = User::where('status',1)->count();
+ 		$data = [
+ 			    'draw' => $pageInfo['draw'],
+                'recordsTotal' => $userCount,
+                'recordsFiltered' => $userCount,
+                'data' => $user,
+                //'search'=>''
+ 		];
+ 		return response()->json($data);
+ 	}  
 }
