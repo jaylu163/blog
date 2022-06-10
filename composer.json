@@ -7,7 +7,7 @@
     "require": {
         "php": ">=5.6.4",
         "earnp/laravel-google-authenticator": "dev-master",
-        "guzzlehttp/guzzle": "6.3",
+        "guzzlehttp/guzzle": "6.5.7",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
         "predis/predis": "^1.1",
